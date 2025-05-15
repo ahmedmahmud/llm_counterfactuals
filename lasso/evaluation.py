@@ -80,8 +80,5 @@ for sample in tqdm(dataset):
 
 # Save results
 df = pd.DataFrame(results)
-df.to_csv("sst2_counterfactual_results.csv", index=False)
+df.to_csv("sst2_counterfactual_results.csv")
 print(df.head())
-# print(
-#     f"\nFlip Rate: {df['flip'].mean():.2f}, Avg Perplexity: {df['perplexity'].mean():.2f}, Avg Similarity: {df['similarity'].mean():.2f}"
-# )

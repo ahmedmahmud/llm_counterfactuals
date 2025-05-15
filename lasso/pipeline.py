@@ -125,5 +125,5 @@ if __name__ == "__main__":
 
     statement = "the plot is nothing but boilerplate clichés from start to finish ,"
 
-    result = pipeline(model, statement, debug=True)
+    result = pipeline(model, statement, device, debug=True)
     print(result['counterfactual'])

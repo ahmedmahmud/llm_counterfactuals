@@ -1,0 +1,63 @@
+llm-counterfactuals on  main [✘!?] is 📦 v0.1.0 via 🐍 v3.12.3 took 3s
+❯ uv run lasso/pipeline.py
+Gemma2ForCausalLM(
+  (model): Gemma2Model(
+    (embed_tokens): Embedding(256000, 2304, padding_idx=0)
+    (layers): ModuleList(
+      (0-25): 26 x Gemma2DecoderLayer(
+        (self_attn): Gemma2Attention(
+          (q_proj): Linear(in_features=2304, out_features=2048, bias=False)
+          (k_proj): Linear(in_features=2304, out_features=1024, bias=False)
+          (v_proj): Linear(in_features=2304, out_features=1024, bias=False)
+          (o_proj): Linear(in_features=2048, out_features=2304, bias=False)
+        )
+        (mlp): Gemma2MLP(
+          (gate_proj): Linear(in_features=2304, out_features=9216, bias=False)
+          (up_proj): Linear(in_features=2304, out_features=9216, bias=False)
+          (down_proj): Linear(in_features=9216, out_features=2304, bias=False)
+          (act_fn): PytorchGELUTanh()
+        )
+        (input_layernorm): Gemma2RMSNorm((2304,), eps=1e-06)
+        (post_attention_layernorm): Gemma2RMSNorm((2304,), eps=1e-06)
+        (pre_feedforward_layernorm): Gemma2RMSNorm((2304,), eps=1e-06)
+        (post_feedforward_layernorm): Gemma2RMSNorm((2304,), eps=1e-06)
+      )
+    )
+    (norm): Gemma2RMSNorm((2304,), eps=1e-06)
+    (rotary_emb): Gemma2RotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=2304, out_features=256000, bias=False)
+  (generator): Generator(
+    (streamer): Streamer()
+  )
+)
+3 13 35 19
+You're using a GemmaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.13it/s]
+torch.Size([1, 35, 2304]) size of embedding matrix
+Initial Yes prob: 0.7773, No prob: 0.2227
+Target class index: 1294 (No)
+Step 1/50 — total loss: 1.5000, CE loss: 1.5000, L1 loss: 0.0000, probs: [No: 0.22265625, Yes: 0.77734375]
+Step 2/50 — total loss: 300.0000, CE loss: 0.0001, L1 loss: 300.0000, probs: [No: 1.0, Yes: 9.632110595703125e-05]
+Step 3/50 — total loss: 232.0000, CE loss: 0.0003, L1 loss: 232.0000, probs: [No: 1.0, Yes: 0.000335693359375]
+Step 4/50 — total loss: 156.0000, CE loss: 0.0005, L1 loss: 156.0000, probs: [No: 1.0, Yes: 0.00048828125]
+Step 5/50 — total loss: 153.0000, CE loss: 0.0052, L1 loss: 153.0000, probs: [No: 0.99609375, Yes: 0.005218505859375]
+Step 6/50 — total loss: 144.0000, CE loss: 0.4277, L1 loss: 144.0000, probs: [No: 0.65234375, Yes: 0.349609375]
+Step 7/50 — total loss: 134.0000, CE loss: 7.8750, L1 loss: 126.0000, probs: [No: 0.0003795623779296875, Yes: 1.0]
+Step 8/50 — total loss: 120.5000, CE loss: 1.4062, L1 loss: 119.0000, probs: [No: 0.2451171875, Yes: 0.75390625]
+Step 9/50 — total loss: 116.5000, CE loss: 0.0067, L1 loss: 116.5000, probs: [No: 0.9921875, Yes: 0.006683349609375]
+Step 10/50 — total loss: 112.5000, CE loss: 0.0015, L1 loss: 112.5000, probs: [No: 1.0, Yes: 0.00150299072265625]
+Step 11/50 — total loss: 108.5000, CE loss: 0.0020, L1 loss: 108.5000, probs: [No: 0.99609375, Yes: 0.00193023681640625]
+Step 12/50 — total loss: 99.5000, CE loss: 0.0060, L1 loss: 99.5000, probs: [No: 0.9921875, Yes: 0.00592041015625]
+Step 13/50 — total loss: 92.5000, CE loss: 0.0486, L1 loss: 92.5000, probs: [No: 0.953125, Yes: 0.04736328125]
+Step 14/50 — total loss: 86.5000, CE loss: 0.1128, L1 loss: 86.5000, probs: [No: 0.89453125, Yes: 0.10693359375]
+Step 15/50 — total loss: 80.0000, CE loss: 0.0041, L1 loss: 80.0000, probs: [No: 0.99609375, Yes: 0.004058837890625]
+Step 16/50 — total loss: 81.0000, CE loss: 3.4062, L1 loss: 77.5000, probs: [No: 0.033203125, Yes: 0.96875]
+Step 17/50 — total loss: 79.0000, CE loss: 0.0000, L1 loss: 79.0000, probs: [No: 1.0, Yes: 3.725290298461914e-06]
+Step 18/50 — total loss: 85.0000, CE loss: 0.0000, L1 loss: 85.0000, probs: [No: 1.0, Yes: 4.00543212890625e-05]
+Step 19/50 — total loss: 88.5000, CE loss: 0.0001, L1 loss: 88.5000, probs: [No: 1.0, Yes: 5.817413330078125e-05]
+Step 20/50 — total loss: 86.5000, CE loss: 0.0002, L1 loss: 86.5000, probs: [No: 1.0, Yes: 0.00020313262939453125]
+Step 21/50 — total loss: 80.0000, CE loss: 0.0032, L1 loss: 80.0000, probs: [No: 0.99609375, Yes: 0.003173828125]
+Stopping as threshold and minstep reached
+the plot is nothing but boilerplate clichés from start to finish ,
