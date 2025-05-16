@@ -61,7 +61,7 @@ for sample in tqdm(dataset):
         model_label = classify(statement)
         new_label = classify(counterfactual)
 
-        flip = int(orig_label != new_label)
+        flip = int(model_label != new_label)
         # ppl = compute_perplexity(counterfactual)
         sim = compute_similarity(statement, counterfactual)
 
