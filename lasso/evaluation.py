@@ -58,6 +58,7 @@ for sample in tqdm(dataset):
         output = pipeline(model, statement, device, debug=False)
         counterfactual = output["counterfactual"]
 
+        model_label = classify(statement)
         new_label = classify(counterfactual)
 
         flip = int(orig_label != new_label)
@@ -68,7 +69,8 @@ for sample in tqdm(dataset):
             {
                 "original": statement,
                 "counterfactual": counterfactual,
-                "original_label": orig_label,
+                "original_dataset_label": orig_label,
+                "sentence_label": model_label,
                 "counterfactual_label": new_label,
                 "flip": flip,
                 # "perplexity": ppl,
@@ -82,3 +84,6 @@ for sample in tqdm(dataset):
 df = pd.DataFrame(results)
 df.to_csv("sst2_counterfactual_results.csv")
 print(df.head())
+print("Average flip score:", df["flip"].mean())
+print("Average similarity:", df["similarity"].mean())
+
